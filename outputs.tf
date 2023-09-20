@@ -5,7 +5,7 @@ output "endpoint" {
 
 output "product" {
   description = "The product which was randomly selected."
-  value       = var.hashi_products[random_integer.product.result].name
+  value       = local.hashi_products[random_integer.product.result].name
 }
 
 output "storage_account_name" {
