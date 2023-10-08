@@ -1,6 +1,6 @@
 # Terraform module for an Azure static website
 
-Provisions an Azure storage account configured for static website hosting.
+Provisions an Azure storage account configured for static website hosting, with a sample HashiCafe website.
 
 Enabled for Terraform Cloud [no-code provisioning](https://developer.hashicorp.com/terraform/cloud-docs/no-code-provisioning/module-design).
 
@@ -17,8 +17,8 @@ Enabled for Terraform Cloud [no-code provisioning](https://developer.hashicorp.c
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.73.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.5.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | >= 3.0 |
 
 ## Modules
 
