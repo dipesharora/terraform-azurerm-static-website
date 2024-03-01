@@ -1,0 +1,60 @@
+Step 1 - Ensure ARM environment variables are set in Terminal
+    export ARM_SUBSCRIPTION_ID=""
+    export ARM_TENANT_ID=""
+    export ARM_CLIENT_ID=""
+    export ARM_CLIENT_SECRET=""
+
+Step 2 - terraform init
+
+Step 3 - terraform test
+
+Step 4 - Add helper module for "Website is running" test. Copy-paste the last run block from website.tftest.hcl.2
+
+Step 5 - terraform init
+
+Step 6 - terraform test
+
+Step 7 - Test failure - Change HTTP status code in assert condition for "Website is running" (e.g. 400, 404 etc.)
+
+Step 8 - terraform test
+
+Step 9 - Revert HTTP status code in assert condition for "Website is running" back to 200.
+
+Step 10 - Commit files to Git
+
+Step 11 - git push origin main
+
+Step 12 - Go to TFC Private Module registry, and publish the module with branch based publishing.
+    Module Publish Type - branch
+    Branch Name - main
+    Module Version - 1.0.0
+    Check Enable Testing for Module
+
+Step 13 - Configure module tests.
+    Add ARM environment variables
+
+Step 14 - Update the ARM provider to 3.94.0 in main.tf
+
+Step 15 - terraform init -upgrade
+
+Step 16 - Push to Git
+    git commit -a -m "Update AzureRM provider version to 3.94.0"
+    git push origin main
+
+Step 17 - Go to TFC, and review Module tests
+
+Step 18 - Run TFC test from CLI, optionally change HTTP status code to 404.
+    terraform test -cloud-run=app.terraform.io/da-hc-demo-org/azurerm-static-website/azure
+
+Step 19 - Add mocking test. Copy-paste the config from mocking.tftest.hcl.1 to website.tftest.hcl
+
+Step 20 - terraform init
+
+Step 21 - terraform test
+
+Step 22 - Cleanup
+    Remove "Website is running" and mocking config from website.tftest.hcl
+    Update the ARM provider to 3.92.0 in main.tf
+    Push to Git
+    Delete module from TFC Private registry
+

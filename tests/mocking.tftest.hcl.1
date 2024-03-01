@@ -1,0 +1,23 @@
+override_resource {
+  target = azurerm_virtual_network.test_mocking_demo
+}
+
+override_resource {
+  target = azurerm_subnet.test_mocking_demo
+}
+
+run "mocking_demo" {
+  variables {
+    resource_group_name = run.setup_resource_group.resource_group_name
+  }
+
+  assert {
+    condition     = azurerm_virtual_network.test_mocking_demo.tags.Name == "mockingbird"
+    error_message = "Invalid name tag"
+  }
+
+  assert {
+    condition     = azurerm_subnet.test_mocking_demo.name == "test-subnet"
+    error_message = "Invalid subnet name"
+  }
+}
