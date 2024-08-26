@@ -85,3 +85,20 @@ run "create_website" {
     error_message = "Unexpected access tier."
   }
 }
+
+run "website_is_running" {
+  command = apply
+
+  module {
+    source = "./tests/http-validate"
+  }
+
+  variables {
+    endpoint = run.create_website.endpoint
+  }
+
+  assert {
+    condition     = data.http.index.status_code == 200
+    error_message = "Website responded with HTTP status ${data.http.index.status_code}"
+  }
+}
