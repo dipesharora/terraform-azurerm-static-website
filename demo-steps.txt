@@ -43,9 +43,6 @@ Step 16 - Push to Git
 
 Step 17 - Go to TFC, and review Module tests
 
-Step 18 - Run TFC test from CLI, optionally change HTTP status code to 404.
-    terraform test -cloud-run=app.terraform.io/da-hc-demo-org/azurerm-static-website/azure
-
 Step 19 - Add mocking test. Copy-paste the config from mocking.tftest.hcl.1 to website.tftest.hcl
 
 Step 20 - terraform init
@@ -55,6 +52,7 @@ Step 21 - terraform test
 Step 22 - Cleanup
     Remove "Website is running" and mocking config from website.tftest.hcl
     Update the ARM provider to 3.92.0 in main.tf
+    Delete lock file.
     Push to Git
     Delete module from TFC Private registry
 
