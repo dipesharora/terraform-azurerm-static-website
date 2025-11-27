@@ -32,6 +32,10 @@ Step 12 - Go to TFC Private Module registry, and publish the module with branch 
 
 Step 13 - Configure module tests.
     Add ARM environment variables
+    ARM_SUBSCRIPTION_ID
+    ARM_TENANT_ID
+    ARM_CLIENT_ID
+    ARM_CLIENT_SECRET
 
 Step 14 - Update the ARM provider to 3.94.0 in main.tf
 
