@@ -1,3 +1,49 @@
+# terraform-azurerm-static-website
+
+This repository contains Terraform code and tests for deploying a simple static website on Azure using the AzureRM provider. It includes example test configurations for Terraform testing and guidance for publishing a private module to Terraform Cloud (TFC).
+
+**Quick overview:**
+
+- **Purpose:** Deploy and exercise a static website on Azure and demonstrate test-driven module publishing in Terraform Cloud.
+- **Primary files:**
+  - `main.tf` — infrastructure configuration
+  - `variables.tf` — input variables
+  - `demo-steps.md` — step-by-step demo and testing instructions
+  - `website.tftest.hcl*` — test configurations (examples/mocks)
+
+**Getting started (local demo):**
+
+1. Set the required Azure environment variables:
+
+```bash
+export ARM_SUBSCRIPTION_ID=""
+export ARM_TENANT_ID=""
+export ARM_CLIENT_ID=""
+export ARM_CLIENT_SECRET=""
+```
+
+2. Initialize Terraform:
+
+```bash
+terraform init
+```
+
+3. Run tests:
+
+```bash
+terraform test
+```
+
+See `demo-steps.md` for the full guided demo, including test variations, module publishing to TFC, and cleanup steps.
+
+**Contributing / Notes:**
+
+- If you edit the provider version in `main.tf`, run `terraform init -upgrade` before pushing.
+- Tests may reference local test files like `website.tftest.hcl` and mocking configs — update them when experimenting.
+
+---
+
+If you want, I can commit this README and push it to `origin/main` for you.
 # Terraform module for an Azure static website
 
 Provisions an Azure storage account configured for static website hosting, with a sample HashiCafe website.
